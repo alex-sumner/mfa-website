@@ -1,3 +1,3 @@
 
-game.core.init();
+site.core.init();
 shadow.cljs.devtools.client.browser.module_loaded('main');

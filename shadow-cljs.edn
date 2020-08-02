@@ -8,11 +8,11 @@
 
  :nrepl        {:port 3333}
 
- :builds {:game {:target :browser
+ :builds {:site {:target :browser
                  :output-dir "public/js"
                  :asset-path "/js"
 
-                 :modules {:main {:init-fn game.core/init}}
+                 :modules {:main {:init-fn site.core/init}}
 
                  :devtools {:http-root   "public"
                             :http-port   3000}}}}

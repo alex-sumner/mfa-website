@@ -2,8 +2,8 @@
   "name": "test",
   "version": "0.0.1",
   "scripts": {
-    "dev": "shadow-cljs watch game",
-    "release": "shadow-cljs release game",
+    "start": "shadow-cljs watch site",
+    "release": "shadow-cljs release site",
     "server": "shadow-cljs server",
     "clean": "rm -rf target && rm -rf public/js",
     "clean-win": "rmdir /s /q public/js & rmdir /s /q target"
