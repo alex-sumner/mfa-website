@@ -1,23 +1,35 @@
 {
-  "name": "test",
-  "version": "0.0.1",
-  "scripts": {
-    "start": "shadow-cljs watch site",
-    "release": "shadow-cljs release site",
-    "server": "shadow-cljs server",
-    "clean": "rm -rf target && rm -rf public/js",
-    "clean-win": "rmdir /s /q public/js & rmdir /s /q target"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alex-sumner/cljs-react-tic-tac-toe-tutorial.git"
-  },
-  "dependencies": {
-    "create-react-class": "^15.6.3",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  },
-  "devDependencies": {
-    "shadow-cljs": "2.8.76"
-  }
+    "name": "rd-site",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "shadow-cljs watch site",
+        "build": "shadow-cljs compile site",
+        "buildcss": "postcss css/tailwind.css -o public/css/tailwind.css",
+        "watchcss": "postcss css/tailwind.css -o public/css/tailwind.css --watch",
+        "release": "shadow-cljs release site",
+        "server": "shadow-cljs server",
+        "clean": "rm -rf target && rm -rf public/js",
+        "clean-win": "rmdir /s /q public/js & rmdir /s /q target"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@tailwindcss/ui": "^0.5.0",
+        "@tailwindui/react": "^0.1.1",
+        "autoprefixer": "^9.8.6",
+        "create-react-class": "^15.6.3",
+        "highlight.js": "9.18.1",
+        "postcss-cli": "^7.1.2",
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0",
+        "react-flip-move": "^3.0.4",
+        "react-highlight.js": "^1.0.7",
+        "tailwindcss": "^1.8.2"
+    },
+    "devDependencies": {
+        "shadow-cljs": "2.11.4"
+    }
 }
