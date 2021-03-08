@@ -1,23 +1,27 @@
 (ns site.router
-  (:require [bidi.bidi :as bidi]
+  (:require [reitit.core :as re]
             [pushy.core :as pushy]
             [re-frame.core :as rf]))
 
-(def routes ["/" {"" :home
-                  "home" :home
-                  "music-group" :music-group
-                  "instrument-loan" :instrument-loan
-                  "strings-in-schools" :strings-in-schools      
-                  "sheet-music" :sheet-music
-                  "soundcloud" :soundcloud
-                  "facebook" :facebook
-                  "treble-clef" :treble-clef
-                  "bass-clef" :bass-clef
-                  "b-flat" :b-flat}])
+(def router
+  (re/router
+   [["/" :home]
+    ["/music-group" :music-group]
+    ["/instrument-loan" :instrument-loan]
+    ["/strings-in-schools" :strings-in-schools]
+    ["/sheet-music" :sheet-music]
+    ["/soundcloud" :soundcloud]
+    ["/facebook" :facebook]
+    ["/treble-clef" :treble-clef]
+    ["/bass-clef" :bass-clef]
+    ["/b-flat" :b-flat]])) 
 
 (def history
   (let [dispatch #(rf/dispatch [:route-changed %])
-        match #(bidi/match-route routes %)]
+        match #(->
+                (re/match-by-path router %)
+                :data
+                :name)]
     (pushy/pushy dispatch match)))
 
 (defn start!
@@ -26,7 +30,7 @@
 
 (defn path-for
   [route]
-  (bidi/path-for routes route))
+  (:path (re/match-by-name router route)))
 
 (defn set-token!
   [token]
