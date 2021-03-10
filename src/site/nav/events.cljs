@@ -12,7 +12,7 @@
 (rf/reg-event-fx
  :route-changed
  nav-interceptors
- (fn [{nav :db} [_ handler]]
+ (fn [{nav :db} [_ {:keys [handler route-params]}]]
    {:db (assoc nav :active-page handler)}))
 
 (rf/reg-event-db
