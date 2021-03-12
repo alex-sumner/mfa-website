@@ -12,7 +12,7 @@
 (defn menu-item-page [active-id]
   [:<>
    [:h2 {:class "text-2xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-3xl sm:leading-none md:text-4xl lg:text-3xl xl:text-4xl"} (get-in items [active-id :caption])]
-   [:p {:class "mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl"}
+   [:div {:class "mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl"}
     (get-in items [active-id :description])]
    (for [{:keys [ref text]} (get-in items [active-id :links])]
      (anchor-list-item ref text))
@@ -23,7 +23,7 @@
 (defn tunes-page [active-id]
   [:<>
    [:h2 {:class "text-2xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-3xl sm:leading-none md:text-4xl lg:text-3xl xl:text-4xl"} (get-in tunes [active-id :title])]
-   [:p {:class "mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl"}
+   [:div {:class "mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl"}
     (for [{:keys [ref text]} (get-in tunes [active-id :links])]
       (anchor-list-item ref text))]])
 
